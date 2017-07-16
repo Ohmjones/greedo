@@ -15,14 +15,10 @@ if find2:
 else:
     pass
 
-fix1 = "apt remove resolvconf -y"
-fix2 = "/etc/init.d/networking restart"
-fix3 = "apt-get install resolvconf -y"
-sep = " && "
+fix = "echo && apt remove resolvconf -y && echo && /etc/init.d/networking restart && echo && apt-get install resolvconf -y"
 
 print "[!] Fixing shitty resolvconf..."
-chain = fix1 + sep + fix2 + sep + fix3
-os.system(chain)
+os.system(fix)
 print "\t[*] Fixed..."
 print "[!] Launching test page..."
 
